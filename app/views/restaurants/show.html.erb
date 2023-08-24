@@ -1,0 +1,25 @@
+<h1>🍜<%= @restaurant.name %>🍜</h1>
+
+<h3><%= @restaurant.address %></h3>
+
+<h3><%= @restaurant.phone_number %></h3>
+
+<h3><%= @restaurant.category %></h3>
+<div class="reviews m-4">
+  <h2>Reviews</h2>
+  <ul class='list-group'>
+    <% @reviews.each do |review| %>
+    <li class='list-group-item'>
+      "<%= review.content %> stars: <%= review.rating %>"
+    </li>
+    <% end %>
+    <li class='list-group-item'>
+      <p>Avarage Rating: <%= @avarage %>
+      </p>
+    </li>
+  </ul>
+  <button class='btn-primary m-4'>
+    <h4><%= link_to 'Create new Review', new_restaurant_review_path(@restaurant), :style=> 'color:#FFFFFF;', :class => 'css_class' %></h4>
+  </button>
+</div>
+<%= link_to '👈🏼 List', restaurants_path %>
